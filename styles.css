@@ -1,0 +1,145 @@
+:root{
+  --card:#ffffff;
+  --border:#e5e7eb;
+  --text:#0f172a;
+  --muted:#64748b;
+  --primary-start:#3b2d57;
+  --primary-end:#0e4455;
+}
+
+* { box-sizing: border-box; }
+
+html, body{
+  padding:0; margin:0; background:var(--bg);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  color:var(--text);
+}
+
+.card{
+  max-width: 960px;
+  margin: 18px auto;
+  background: var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow: 0 6px 24px rgba(0,0,0,.06);
+}
+
+.card-header{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:12px;
+  padding:16px;
+  background: linear-gradient(90deg, var(--primary-start), var(--primary-end));
+  color:white;
+}
+
+.title{
+  margin:0;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.controls{
+  margin-left:auto;
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.control{
+  display:flex; align-items:center; gap:8px;
+  background: rgba(255,255,255,.18);
+  padding:6px 8px; border-radius:10px;
+  backdrop-filter: blur(2px);
+}
+
+.control span{ font-size:12px; font-weight:700; opacity:.95; }
+.control select{
+  border:none; outline:none;
+  background: linear-gradient(272deg, #ffffff, #1c243700);
+  padding:6px 10px; border-radius:8px; font-weight:600;
+}
+
+.btn{
+  border:none; outline:none; cursor:pointer;
+  background:white; color:#111827; font-weight:700;
+  padding:8px 12px; border-radius:10px;
+}
+
+#leagueTable{
+  /* Tabulator has its own horizontal scroller; giving it room */
+  width:100%;
+  height:auto;
+}
+
+/* Cleaner look */
+.tabulator{
+  border:none !important;
+  border-radius:0 0 16px 16px;
+}
+
+/* --- No vertical column borders --- */
+.tabulator .tabulator-cell,
+.tabulator .tabulator-col,
+.tabulator .tabulator-col-group {
+  border-right: 0 !important;
+  box-shadow: none !important;
+}
+
+.tabulator .tabulator-tableholder{ 
+    background: transparent; 
+}
+
+.tabulator .tabulator-header{
+  border-bottom:1px solid var(--border);
+}
+.tabulator .tabulator-col{
+  background:#f8fafc;
+  font-weight:800;
+}
+.tabulator-row{
+  border-bottom:1px solid var(--border);
+}
+.tabulator-row .tabulator-cell{
+  font-weight:600;
+}
+/* Keep only clean horizontal lines */
+.tabulator .tabulator-header { border-bottom: 1px solid var(--border); }
+.tabulator .tabulator-row    { border-bottom: 1px solid var(--border); }
+
+/* Remove vertical frozen lines */
+.tabulator .tabulator-row .tabulator-cell.tabulator-frozen,
+.tabulator .tabulator-header .tabulator-col.tabulator-frozen {
+  border-right: 0 !important;
+  box-shadow: none !important;
+}
+.tabulator .tabulator-frozen.tabulator-frozen-left::after,
+.tabulator .tabulator-frozen.tabulator-frozen-right::after {
+  display: none !important;
+}
+
+/* Narrow screens — keep horizontal scroll, no "collapse" rows */
+@media (max-width: 560px){
+  .controls{ width:100%; margin-left:0; }
+  .control{ width:100%; justify-content:space-between; }
+}
+
+.is-hidden { display: none !important; }
+
+/* make only team names look clickable */
+.team-link{
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: none;
+}
+.team-link:hover{ text-decoration: underline; }
+
+/* keep other cells non-clickable look */
+.team-text{ font-weight: 700; }
+
+.tabulator .tabulator-header .tabulator-col .tabulator-col-title{
+  padding-right: 0 !important;
+}

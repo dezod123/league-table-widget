@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>League Table Widget</title>
+
+  <!-- Tabulator CSS (CDN) -->
+  <link href="https://unpkg.com/tabulator-tables@6.2.2/dist/css/tabulator.min.css" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link href="./styles.css" rel="stylesheet" />
+  <link rel="icon" href="data:,">
+</head>
+<body>
+  <section class="card">
+    <div class="card-header">
+      <h1 class="title">Classement</h1>
+
+      <div class="controls">
+        <label class="control">
+          <span>Division</span>
+          <select id="leagueSelect"></select>
+        </label>
+      </div>
+    </div>
+
+    <div id="leagueTable"></div>
+  </section>
+
+  <!-- Tabulator JS (CDN) -->
+  <script src="https://unpkg.com/tabulator-tables@6.2.2/dist/js/tabulator.min.js"></script>
+
+  <!-- Widget logic -->
+  <script src="./widget.js"></script>
+</body>
+</html>
